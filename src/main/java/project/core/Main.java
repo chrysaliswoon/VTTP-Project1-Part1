@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner; // Import the Scanner class
 import java.io.BufferedReader;
 import java.io.IOException; // Import the IOException class to handle errors
@@ -26,7 +27,6 @@ public class Main {
 
         // Scanner scanner = new Scanner(System.in);
         Console cons = System.console();
-        ArrayList<String> cart = new ArrayList<String>();
         Boolean usingCart = true;
 
         while (usingCart) {
@@ -34,36 +34,29 @@ public class Main {
             String userInput = cons.readLine("> ");
             String[] terms = userInput.split(" "); // ? Split returns an array of string
             String command = terms[0];
+            List<String> cart = fredCart.load();
 
 
-            if (command.equals("create")) {   //? In progress
-                System.out.println("Creating new user");
+
+            if (command.equals("create")) {   //! Create not working
+                System.out.printf("Enter a new user \n");
+                String createUser = cons.readLine("> ");
+                // User newUser = new User(createUser);
+                // newUser.create();
 
             } else if (command.equals("list")) { //? In progress - Need to create appropriate message if list is empty
                 fredCart.list();
 
 
             } else if (command.equals("add")) { 
-                // for (int i = 1; i < terms.length; i++) {
-                //     // boolean found = false;
-                //     // for (int j = 0; j < cart.size(); j++) {
-                //     //     if (terms[i].equals(cart.get(j))) {
-                //     //         found = true;
-                //     //         System.out.printf("%s exists in the cart\n", terms[i]);
-                //     //         break;
-                //     //     }
-                //     //}
-                //     // if (!found) {
-                //         fredCart.add(terms[i]);
-                //         System.out.printf("Added %s to cart\n", terms[i]);
-                //     // }
-                // }
+                fredCart.add();
 
             } else if (command.equals("delete")) {  //? In progress
                 System.out.println("Deleting");
 
             } else if (command.equals("load")) { //? Load the existing file info into an aray list
-                fredCart.load();
+                System.out.println(cart);
+
 
             } else if (command.equals("save")) { //? In progress
                 System.out.println("Saving");

@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner; // Import the Scanner class to read text files
 
-public class Cart implements CartControllable {
+public class Cart {
     // ? Properties (Members of class)
     public User user;
     // public String cartItem;
@@ -26,37 +26,30 @@ public class Cart implements CartControllable {
     // ? Generate Getter & Setter
 
     // ? Behavior
-    public void list() {
-        String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
 
-        try {
-            File cartReader = new File(pathName);
-            Scanner reader = new Scanner(cartReader);
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
-                System.out.println(data);
-            }
-            reader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+    public void list() {
+        // String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" +
+        // user.name + ".cart";
+
+        // try {
+        // File cartReader = new File(pathName);
+        // Scanner reader = new Scanner(cartReader);
+        // while (reader.hasNextLine()) {
+        // String data = reader.nextLine();
+        // System.out.println(data);
+        // }
+        // reader.close();
+        // } catch (FileNotFoundException e) {
+        // System.out.println("An error occurred.");
+        // e.printStackTrace();
+        // }
     }
 
     public void add() {
-        // String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
-
-        // try {
-        //     FileWriter cartWriter = new FileWriter(pathName);
-        //     System.out.println("Writing content to the cart file.");
-        //     cartWriter.write(cartItem);
-        //     cartWriter.close();
-        //     System.out.println("Successfully added to the cart file.");
-        // } catch (IOException e) {
-        //     System.out.println("An error occurred.");
-        //     e.printStackTrace();
-        // }
-
+        for (int i = 1; i < terms.length; i++) {
+            user.name.add(terms[i]);
+            System.out.printf("Added %s to cart\n", terms[i]);
+        }
     }
 
     public void delete() {
@@ -64,18 +57,27 @@ public class Cart implements CartControllable {
 
     }
 
-    public void load() {
-        String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
+    public List<String> load() {
+        String pathName = "./shoppingcart/" + user.name + ".cart";
+        // list that holds strings of a file
+        List<String> listOfStrings = new ArrayList<String>();
 
-        // try (BufferedReader reader = new BufferedReader(
-        //     new FileReader(pathName))) {
-        //         while (reader.ready()) {
-        //             cart.add(reader.readLine());
-        //         }
-        //     }
-        //     catch (IOException e) {
-        //         e.printStackTrace();
-        //     }
+        try {
+            File cartReader = new File(pathName);
+            Scanner reader = new Scanner(cartReader);
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                listOfStrings.add(data);
+            }
+            reader.close();
+            return listOfStrings;
+        
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return listOfStrings;
+
     }
 
     public void save() {

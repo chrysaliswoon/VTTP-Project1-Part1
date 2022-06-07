@@ -10,7 +10,6 @@ public class User {
     // ? Constructor
     public User(String name) {
             this.name = name; // ? Initialise name to whatever value you pass it in
-            // System.out.printf("Instantiating new User object for user %s \n", name);
         }
 
     // ? Generate Getter & Setter
