@@ -2,8 +2,14 @@ package project.core;
 
 import java.io.FileWriter; // Import the FileWriter class
 import java.io.IOException; // Import the IOException class to handle errors
+import java.nio.Buffer;
+import java.io.BufferedReader;
 import java.io.File; // Import the File class
 import java.io.FileNotFoundException; // Import this class to handle errors
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class Cart implements CartControllable {
@@ -38,22 +44,18 @@ public class Cart implements CartControllable {
     }
 
     public void add() {
-        String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
-        String[] fruits = { "Apple", "Durian", "Orange", "Banana" };
+        // String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
 
-        try {
-            FileWriter cartWriter = new FileWriter(pathName);
-            int lineCounter = 0;
-            System.out.println("Writing content to the cart file.");
-            for (String i : fruits) {
-                cartWriter.write(i + "\n");
-            }
-            cartWriter.close();
-            System.out.println("Successfully added to the cart file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        // try {
+        //     FileWriter cartWriter = new FileWriter(pathName);
+        //     System.out.println("Writing content to the cart file.");
+        //     cartWriter.write(cartItem);
+        //     cartWriter.close();
+        //     System.out.println("Successfully added to the cart file.");
+        // } catch (IOException e) {
+        //     System.out.println("An error occurred.");
+        //     e.printStackTrace();
+        // }
 
     }
 
@@ -63,7 +65,17 @@ public class Cart implements CartControllable {
     }
 
     public void load() {
+        String pathName = "/Users/chrysalis/VTTP-Program/project1/shoppingcart/" + user.name + ".cart";
 
+        // try (BufferedReader reader = new BufferedReader(
+        //     new FileReader(pathName))) {
+        //         while (reader.ready()) {
+        //             cart.add(reader.readLine());
+        //         }
+        //     }
+        //     catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
     }
 
     public void save() {

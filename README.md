@@ -13,3 +13,11 @@ Methods
 6. exit
 
 * create - able to create a file
+
+
+Step 1: Load the file into an ArrayList
+Step 2: Use for loop (Readline) the ArrayList 
+Step 3: 
+
+
+Load -> Add/Delete -> Save 
